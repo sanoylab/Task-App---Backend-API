@@ -13,4 +13,9 @@ app.use(userRouter)
 app.use(taskRouter)
 
 
-app.listen(PORT, ()=>console.log(`Server started on PORT ${PORT}`))
+app.listen(PORT, ()=>{
+        console.log(`Server started on PORT ${PORT}`)
+    }
+)
+
+
