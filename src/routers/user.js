@@ -77,6 +77,16 @@ router.delete('/users/:id', async(req, res)=>{
     
 })
 
+router.post('/users/login', async (req, res)=>{
+    try{
+        
+        const user = await User.authenticateUser(req.body.email, req.body.password)
+        res.send(user)
+    }catch(e){
+        res.send(e).status(400)
+    }
+})
+
 module.exports = router
 
 
