@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
 })
 userSchema.methods.generateAuthToken = async function(){
     const user = this
-    const token = await jwt.sign({ _id: user._id.toString() }, 'myteskmanagerapp')
+    const token = await jwt.sign({ _id: user._id.toString() }, process.env.ACCESS_TOKEN_SECRET)
     //user.tokens = user.tokens.concat({token})
     user.tokens.push({token})
     user.save()
