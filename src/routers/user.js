@@ -91,6 +91,7 @@ router.patch('/users/me', auth, async (req, res)=>{
 router.delete('/users/me', auth, async(req, res)=>{
     try{
         //const user = await User.findByIdAndDelete(req.user._id)
+        console.log('hi', req.user)
         await req.user.remove()
         res.send(req.user)
     }catch(error){
@@ -102,11 +103,8 @@ router.delete('/users/me', auth, async(req, res)=>{
 router.post('/users/login', async (req, res)=>{
     try{
         const user = await User.authenticateUser(req.body.email, req.body.password)
-      
         const token = await user.generateAuthToken()  
-        console.log(token);
-        res.send({user, token})
-        
+        res.send({user, token})        
     }catch(e){
         res.send(e).status(400)
     }

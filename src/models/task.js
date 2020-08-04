@@ -10,6 +10,10 @@ const taskSchema = mongoose.Schema({
         type: Boolean,
         default: false,
         required: false
+    },
+    createdBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
     }
 })
 
