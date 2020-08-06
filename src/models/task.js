@@ -13,8 +13,11 @@ const taskSchema = mongoose.Schema({
     },
     createdBy:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: 'User'
     }
+},{
+    timestamps: true
 })
 
 const Task = mongoose.model('Task', taskSchema )
